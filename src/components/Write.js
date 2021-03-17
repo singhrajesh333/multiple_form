@@ -27,8 +27,8 @@ const Write = (props) => {
         }
         reader.readAsDataURL(e.target.files[0])
     }
-    const submitHandler =() =>{
-    
+    const submitHandler =(e) =>{
+    e.preventDefault();
        data.items.unshift(datas);
       
       props.history.push({
@@ -44,7 +44,9 @@ const Write = (props) => {
     //         }
     console.log(datas)
     return (
-        <div>
+        <div className='container'>
+        <form className="form" onSubmit={submitHandler}>
+        <div className="form-control">
       <label>title</label>
       <input type="text" name="title" onChange={dataHandler} />
       <br />
@@ -56,12 +58,12 @@ const Write = (props) => {
       <input type="number" name="pubDate" onChange={dataHandler} />
       <br />
       <div className="page">
-				<div className="container">
+				<div >
 					<h1 className="heading">Add your Image</h1>
-					<div className="img-holder">
-						<img src={datas.profileImg} alt="" id="img" className="img" />
+					<div className="img-holder" >
+						<img src={datas.profileImg} alt="" id="img" className="img" style={{height:'100px',width:'100px'}}/>
 					</div>
-					<input type="file" accept="image/*" name="image-upload" id="input" onChange={imageHandler} />
+					<input type="file" accept="image/*" name="image-upload" id="input" onChange={imageHandler}  />
 					<div className="label">
           <label className="image-upload" htmlFor="input">
 						<i className="material-icons">add_photo_alternate</i>
@@ -69,9 +71,11 @@ const Write = (props) => {
 					</label>
           </div>
 				</div>
+        </div>
+       
 			</div>
-            <button onClick={submitHandler}>click</button>
- 
+            <button type='submit'>click</button>
+            </form>
     </div>
   );
             

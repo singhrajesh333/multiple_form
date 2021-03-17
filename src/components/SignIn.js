@@ -32,7 +32,7 @@ const SignIn = props => {
   return (
     <div className='container'>
     
-    <h2>Registration Form</h2>
+    <h2>Sign In</h2>
     <form className="form" onSubmit={handleOnSubmit}>
       <div className="form-control">
         <label>Username</label>

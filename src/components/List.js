@@ -1,6 +1,7 @@
 import React, { useState }  from 'react'
 import { Link } from 'react-router-dom';
 import data from '../data/mock_data.json';
+import "./List.css"
 
 
 
@@ -17,11 +18,12 @@ const List = (props) => {
         }
 
     return (
+        
         <div>
-        <div className='navigation' style={{display:'flex',justifyContent:'space-around'}}>
-           <Link to = '/Write'>write</Link>
-            <p>your articles</p>
-            <Link to = '/' >log out</Link>
+        <div className='navigation'>
+           <Link className='btn3' to = '/Write'>write</Link>
+            <Link className='btn4'>your articles</Link>
+            <Link className='btn5' to = '/' >log out</Link>
         </div>
   <div  className="containers">
         <table className="styled-table">
@@ -51,8 +53,8 @@ const List = (props) => {
     <td>{val.title}</td>
     <td>{val.pubDate} </td>
     <td>{val.description}</td>
-    <Link to = {`/Edit/${index}`}>Edit</Link>
-    <button onClick = {() => deleteHandler(index)}>delete</button>
+    <Link className='btn1' to = {`/Edit/${index}`}>Edit</Link>
+    <Link className='btn2' onClick = {() => deleteHandler(index)}>delete</Link>
     </tr>
      </tbody>
         )

@@ -30,8 +30,8 @@ console.log(datas)
         }
         reader.readAsDataURL(e.target.files[0])
     }
-    const submitHandler =() =>{
-    
+    const submitHandler =(e) =>{
+    e.preventDefault()
        data.items.unshift(datas);
       
       props.history.push({
@@ -56,7 +56,9 @@ console.log(datas)
     //         }
     
     return (
-        <div>
+        <div className='container'>
+        <form className="form" onSubmit={submitHandler}>
+        <div className="form-control">
       <label>title</label>
       <input type="text" name="title" value={datas.title} onChange={dataHandler} />
       <br />
@@ -68,10 +70,10 @@ console.log(datas)
       <input type="number" name="pubDate"  value={datas.pubDate} onChange={dataHandler} />
       <br />
       <div className="page">
-				<div className="container">
+				<div >
 					<h1 className="heading">Add your Image</h1>
 					<div className="img-holder">
-						<img src={datas.profileImg} alt="" id="img" className="img" />
+						<img src={datas.profileImg} alt="" id="img" className="img" style={{height:'100px',width:'100px'}} />
 					</div>
 					<input type="file" accept="image/*" name="image-upload" id="input" onChange={imageHandler} />
 					<div className="label">
@@ -82,8 +84,9 @@ console.log(datas)
           </div>
 				</div>
 			</div>
-            <button onClick={submitHandler}>click</button>
- 
+            <button type='submit'>click</button>
+            </div>
+            </form>
     </div>
   );
             
